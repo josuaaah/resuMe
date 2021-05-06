@@ -21,4 +21,8 @@ const achievementSchema = new achievementDatabase.Schema({
     }
 });
 
+achievementSchema.methods.greet = function() {
+    console.log('Hi, I am an achievement.')
+}
+
 const Achievement = achievementDatabase.model('Achievement', achievementSchema)

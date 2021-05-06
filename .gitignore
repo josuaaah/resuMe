@@ -5,4 +5,4 @@ data/
 target/
 pom.xml
 ResuMe.iml
-frontend/node_modules
+code/node_modules
