@@ -9,7 +9,6 @@ const session = require('express-session'); // Allow storing of session data
 const passport = require("passport"); // Authentication of user
 // var passportinit = require("./passportinit");
 
-
 // Files for the Routes
 var homeRouter = require('./routes/home');
 var aboutUsRouter = require('./routes/aboutUs');
@@ -38,7 +37,7 @@ app.use(session({
   saveUninitialized: true,
   resave: false
 }));
-//
+
 // app.use(passport.initialize());
 // app.use(passport.session());
 // passportinit();
@@ -49,7 +48,6 @@ app.use(function (req, res, next) {
   req.flash("message");
   next();
 });
-
 
 // Routes
 app.use('/', homeRouter);
