@@ -320,13 +320,13 @@ body, table, input, select, textarea {
   margin-bottom: 50px;
 }
 
-.PersonalProjectTitleButton {
+.achievementTitleButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.addNewPersonalProject {
+.addNewAchievement {
   margin-left: 30px;
   margin-top: 7px;
 }
@@ -367,11 +367,11 @@ body, table, input, select, textarea {
   width: 200px;
 }
 
-.personalProjectDescription {
+.achievementDescription {
   width: 300px;
 }
 
-.personalProjectOptions {
+.achievementOptions {
   width: 20px;
   margin-left: 50px;
 }

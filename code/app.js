@@ -5,11 +5,11 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const flash = require("connect-flash");
 const cookieParser = require('cookie-parser');
-const session = require('express-session'); // Allow storing of session data
-const passport = require("passport"); // Authentication of user
+const session = require('express-session');     // Allow storing of session data
+const passport = require("passport");           // Authentication of user
+
 // var passportinit = require("./passportinit");
 
-// Files for the Routes
 var homeRouter = require('./routes/home');
 var aboutUsRouter = require('./routes/aboutUs');
 var myAchievementsRouter = require('./routes/myAchievements');
@@ -49,7 +49,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-// Routes
 app.use('/', homeRouter);
 app.use('/aboutUs', aboutUsRouter);
 app.use('/myAchievements', myAchievementsRouter);
