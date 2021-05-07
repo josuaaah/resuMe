@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const flash = require("connect-flash");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const methodOverride = require('method-override');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(function (req, res, next) {
     req.flash("message");
     next();
 });
+app.use(methodOverride('_method'));
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/resumeApp', {useNewUrlParser: true, useUnifiedTopology: true})
@@ -45,6 +47,7 @@ const forgetPasswordRouter = require('./routes/forgetPassword');
 const addNewAchievementRouter = require('./routes/addNewAchievement');
 const addNewResumeRouter = require('./routes/addNewResume');
 const editProfileRouter = require('./routes/editProfile');
+const editAchievementRouter = require('./routes/editAchievement');
 
 app.use('/', homeRouter);
 app.use('/aboutUs', aboutUsRouter);
@@ -56,6 +59,7 @@ app.use('/forgetPassword', forgetPasswordRouter);
 app.use('/addNewAchievement', addNewAchievementRouter);
 app.use('/addNewResume', addNewResumeRouter);
 app.use('/editProfile', editProfileRouter);
+app.use('/editAchievement', editAchievementRouter);
 
 app.listen(process.env.PORT || 3030, function() {
   console.log("Server started on port 3030")
