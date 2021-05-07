@@ -10,4 +10,15 @@ router.get("/", async (req, res, next) => {
     res.render('myAchievements', { achievements });
 });
 
+router.post('/', async (req, res) => {
+    const newAchievement = new Achievement({
+        name: req.body.name,
+        description: req.body.description,
+        year: req.body.year,
+        category: req.body.category
+    })
+    await newAchievement.save()
+    res.redirect('/myAchievements');
+})
+
 module.exports = router;

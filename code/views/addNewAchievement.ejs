@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
   <div class="addNewAchievementsBackground ">
     <div class="achievementResumeButtons">
       <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -36,34 +35,37 @@
         <h3 class="display-6">Add New Achievement</h3>
       </div>
       <div class="horizontalForm">
-        <form class="row g-3" action="../routes/addNewAchievement.js" method="post">
+        <form class="row g-3" action="myAchievements" method="post">
           <div class="col-md-6">
-            <label for="achievementName" class="form-label">Achievement Name</label>
-            <input type="text" class="form-control" id="achievementName" name="achievementName" required>
+            <label for="achievementName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="achievementName" name="name" required>
           </div>
           <div class="input-group" id="achievementDescription">
-            <span class="input-group-text">Achievement Description</span>
-            <textarea class="form-control" aria-label="With textarea" name="achievementDescription"></textarea>
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
           </div>
-          <div class="col-md-2" id="dateInputs">
-            <label for="startDate" class="form-label">Year</label>
-            <input type="date" class="form-control" id="year" name="year" required>
+          <div class="col-md-6" id="dateInputs">
+            <label for="achievementYear" class="form-label">Year</label>
+            <input type="number" class="form-control" id="achievementYear" name="year" min="0" required>
+          </div>
+          <div class="col-md-6">
+            <label for="achievementCategory" class="form-label">Category</label>
+            <select class="form-control" id="achievementCategory" name="category" required>
+              <option value="Award">Award</option>
+              <option value="Certification">Certification</option>
+              <option value="Project">Project</option>
+              <option value="Work Experience">Work Experience</option>
+            </select>
           </div>
           <div class="col-12">
             <button type="submit" class="btn btn-primary" onclick="location.href='/myAchievements'">Save Achievement</button>
           </div>
         </form>
       </div>
-
     </div>
-
   </div>
   <div class="filler">
-
   </div>
-
-  </div>
-
 </body>
 <%- include("footer") %>
 
