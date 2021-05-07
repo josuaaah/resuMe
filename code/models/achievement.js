@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const achievementSchema = new mongoose.Schema({
     name: {
@@ -23,6 +23,6 @@ const achievementSchema = new mongoose.Schema({
     }
 });
 
-const Achievement = mongoose.model('Achievement', achievementSchema)
+const Achievement = mongoose.model('Achievement', achievementSchema);
 
 module.exports = Achievement;

@@ -5,10 +5,9 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const flash = require("connect-flash");
 const cookieParser = require('cookie-parser');
-const session = require('express-session');     // Allow storing of session data
-const passport = require("passport");           // Authentication of user
-
-// var passportinit = require("./passportinit");
+const session = require('express-session');
+const passport = require("passport");
+// const passportinit = require("./passportinit");
 
 var homeRouter = require('./routes/home');
 var aboutUsRouter = require('./routes/aboutUs');
@@ -22,7 +21,6 @@ var addNewResumeRouter = require('./routes/addNewResume');
 var editProfileRouter = require('./routes/editProfile');
 
 const app = express();
-
 app.set('view engine', 'ejs');
 
 app.use(express.json());
@@ -30,24 +28,31 @@ app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
 app.use(cookieParser());
 app.use(session({
   secret: "secret",
   saveUninitialized: true,
   resave: false
 }));
-
 // app.use(passport.initialize());
 // app.use(passport.session());
 // passportinit();
-
 app.use(flash());
 app.use(function (req, res, next) {
   res.locals.message = req.flash("message");
   req.flash("message");
   next();
 });
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/resumeApp', {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => {
+        console.log("Mongoose connection open!")
+    })
+    .catch(err => {
+        console.log("Mongoose connection error!")
+        console.log(err)
+    })
 
 app.use('/', homeRouter);
 app.use('/aboutUs', aboutUsRouter);

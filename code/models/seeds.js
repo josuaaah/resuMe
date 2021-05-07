@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Achievement = require('./achievements')
+const Achievement = require('./achievement')
 
 mongoose.connect('mongodb://localhost:27017/resumeApp', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
