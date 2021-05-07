@@ -3,12 +3,12 @@ const bodyParser = require("body-parser");
 const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
-const Achievement = require("../models/achievement");
+import { Achievement, achievementCategories } from '../models/achievement';
 
 router.get("/:id", async (req, res, next) => {
     const { id } = req.params
     const achievementToEdit = await Achievement.findById(id);
-    res.render("editAchievement", { achievementToEdit });
+    res.render("editAchievement", { achievementToEdit, achievementCategories });
 });
 
 router.put("/:id", async (req, res) => {

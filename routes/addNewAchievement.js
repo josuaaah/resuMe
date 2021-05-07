@@ -3,10 +3,10 @@ const bodyParser = require("body-parser");
 const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
-const Achievement = require("../models/achievement");
+import { Achievement, achievementCategories } from '../models/achievement';
 
 router.get("/", function(req, res, next) {
-    res.render("addNewAchievement");
+    res.render("addNewAchievement", { achievementCategories });
 });
 
 router.post('/', async (req, res) => {

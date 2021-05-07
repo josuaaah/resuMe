@@ -1,5 +1,12 @@
 const mongoose = require('mongoose');
 
+const achievementCategories = [
+    'Award',
+    'Certification',
+    'Project',
+    'Work Experience'
+];
+
 const achievementSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -14,15 +21,13 @@ const achievementSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        enum: [
-            'Award',
-            'Certification',
-            'Project',
-            'Work Experience'
-        ]
+        enum: achievementCategories
     }
 });
 
 const Achievement = mongoose.model('Achievement', achievementSchema);
 
-module.exports = Achievement;
+export {
+    Achievement,
+    achievementCategories
+}
