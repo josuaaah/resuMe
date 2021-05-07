@@ -12,7 +12,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/styles.css" type="text/css">
   <link rel="icon" href="/images/favicon.ico" type="image/favicon.ico">
-  <title>Add New Project</title>
+  <title>Add New Achievement</title>
 </head>
 
 <body>
@@ -26,39 +26,31 @@
     </div>
 
     <div class="achievementTitleButton">
-      <div class="personalProjectTitle">
-        <h1 class="display-6">Add a New Personal Project</h1>
+      <div class="achievementTitle">
+        <h1 class="display-6">Add a New Achievement</h1>
       </div>
     </div>
 
-    <div class="addNewProjectBox">
-      <div class="addNewProjectBoxTitle">
-        <h3 class="display-6">Add New Project</h3>
+    <div class="addNewAchievementBox">
+      <div class="addNewAchievementBoxTitle">
+        <h3 class="display-6">Add New Achievement</h3>
       </div>
       <div class="horizontalForm">
-        <form class="row g-3" action="/addNewProject" method="post">
+        <form class="row g-3" action="../routes/addNewAchievement.js" method="post">
           <div class="col-md-6">
-            <label for="projectName" class="form-label">Project Name</label>
-            <input type="text" class="form-control" id="projectName" name="projectName" required>
+            <label for="achievementName" class="form-label">Achievement Name</label>
+            <input type="text" class="form-control" id="achievementName" name="achievementName" required>
           </div>
-          <div class="col-md-6">
-            <label for="projectRole" class="form-label">Role in Project</label>
-            <input type="text" class="form-control" id="projectRole" required>
-          </div>
-          <div class="input-group" id="projectDescription">
-            <span class="input-group-text">Project Description</span>
-            <textarea class="form-control" aria-label="With textarea" name="projectDescription"></textarea>
+          <div class="input-group" id="achievementDescription">
+            <span class="input-group-text">Achievement Description</span>
+            <textarea class="form-control" aria-label="With textarea" name="achievementDescription"></textarea>
           </div>
           <div class="col-md-2" id="dateInputs">
-            <label for="startDate" class="form-label">Start Date</label>
-            <input type="date" class="form-control" id="startDate" name="startDate" required>
-          </div>
-          <div class="col-md-2" id="dateInputs">
-            <label for="endDate" class="form-label">End Date</label>
-            <input type="date" class="form-control" id="endDate" name ="endDate" required>
+            <label for="startDate" class="form-label">Year</label>
+            <input type="date" class="form-control" id="year" name="year" required>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-primary" onclick="location.href='/myAchievements'">Save Project</button>
+            <button type="submit" class="btn btn-primary" onclick="location.href='/myAchievements'">Save Achievement</button>
           </div>
         </form>
       </div>

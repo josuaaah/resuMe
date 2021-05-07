@@ -381,7 +381,7 @@ body, table, input, select, textarea {
     height:50px;
 }
 
-/**************************************** Add New Personal Projects ****************************************/
+/**************************************** Add New Achievements ****************************************/
 .addNewAchievementsBackground {
   background-color: lightgray;
   display: flex;
@@ -390,7 +390,7 @@ body, table, input, select, textarea {
   height: 100%;
 }
 
-.addNewProjectBox {
+.addNewAchievementBox {
   width: 80%;
   height: 500px;
   background-color: #F5F2D0;
@@ -401,7 +401,7 @@ body, table, input, select, textarea {
   border-radius: 30px;
 }
 
-.addNewProjectBoxTitle {
+.addNewAchievementBoxTitle {
   margin-bottom: 20px;
   margin-left: 50px;
 }
@@ -412,7 +412,7 @@ body, table, input, select, textarea {
   padding-left: 40px;
 }
 
-#projectDescription {
+#achievementDescription {
   padding-left: 15px;
   padding-right: 15px;
   margin-top: 30px;

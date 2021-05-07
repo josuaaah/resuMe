@@ -16,7 +16,7 @@ var myResumesRouter = require('./routes/myResumes');
 var myProfileRouter = require('./routes/myProfile');
 var dashboardRouter = require('./routes/dashboard');
 var forgetPasswordRouter = require('./routes/forgetPassword');
-var addNewProjectRouter = require('./routes/addNewProject');
+var addNewAchievementRouter = require('./routes/addNewAchievement');
 var addNewResumeRouter = require('./routes/addNewResume');
 var editProfileRouter = require('./routes/editProfile');
 
@@ -61,7 +61,7 @@ app.use('/myResumes', myResumesRouter);
 app.use('/myProfile', myProfileRouter);
 app.use('/dashboard', dashboardRouter);
 app.use('/forgetPassword', forgetPasswordRouter);
-app.use('/addNewProject', addNewProjectRouter);
+app.use('/addNewAchievement', addNewAchievementRouter);
 app.use('/addNewResume', addNewResumeRouter);
 app.use('/editProfile', editProfileRouter);
 
