@@ -2,4 +2,4 @@
 .DS_Store
 pom.xml
 ResuMe.iml
-code/node_modules
+node_modules

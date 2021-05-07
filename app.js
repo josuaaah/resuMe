@@ -1,28 +1,12 @@
-// jshint esversion: 6
-
 const express = require("express");
 const bodyParser = require("body-parser");
-const ejs = require("ejs");
 const flash = require("connect-flash");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const passport = require("passport");
-// const passportinit = require("./passportinit");
-
-var homeRouter = require('./routes/home');
-var aboutUsRouter = require('./routes/aboutUs');
-var myAchievementsRouter = require('./routes/myAchievements');
-var myResumesRouter = require('./routes/myResumes');
-var myProfileRouter = require('./routes/myProfile');
-var dashboardRouter = require('./routes/dashboard');
-var forgetPasswordRouter = require('./routes/forgetPassword');
-var addNewAchievementRouter = require('./routes/addNewAchievement');
-var addNewResumeRouter = require('./routes/addNewResume');
-var editProfileRouter = require('./routes/editProfile');
 
 const app = express();
-app.set('view engine', 'ejs');
 
+app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -30,18 +14,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.use(cookieParser());
 app.use(session({
-  secret: "secret",
-  saveUninitialized: true,
-  resave: false
+    secret: "secret",
+    saveUninitialized: true,
+    resave: false
 }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passportinit();
 app.use(flash());
 app.use(function (req, res, next) {
-  res.locals.message = req.flash("message");
-  req.flash("message");
-  next();
+    res.locals.message = req.flash("message");
+    req.flash("message");
+    next();
 });
 
 const mongoose = require('mongoose');
@@ -53,6 +34,17 @@ mongoose.connect('mongodb://localhost:27017/resumeApp', {useNewUrlParser: true, 
         console.log("Mongoose connection error!")
         console.log(err)
     })
+
+const homeRouter = require('./routes/home');
+const aboutUsRouter = require('./routes/aboutUs');
+const myAchievementsRouter = require('./routes/myAchievements');
+const myResumesRouter = require('./routes/myResumes');
+const myProfileRouter = require('./routes/myProfile');
+const dashboardRouter = require('./routes/dashboard');
+const forgetPasswordRouter = require('./routes/forgetPassword');
+const addNewAchievementRouter = require('./routes/addNewAchievement');
+const addNewResumeRouter = require('./routes/addNewResume');
+const editProfileRouter = require('./routes/editProfile');
 
 app.use('/', homeRouter);
 app.use('/aboutUs', aboutUsRouter);
