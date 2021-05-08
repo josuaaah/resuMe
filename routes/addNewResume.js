@@ -5,6 +5,7 @@ var router = express.Router();
 const fs = require('fs');
 
 import { Achievement } from '../models/achievement';
+import { Resume } from '../models/resume';
 
 router.get("/", async (req, res, next) => {
     const achievements = await Achievement.find({});
@@ -13,6 +14,7 @@ router.get("/", async (req, res, next) => {
 
 router.post('/', async (req, res) => {
     const resumeName = req.body.resumeName;
+    const resumeDescription = req.body.resumeDescription;
     let resumeText = "";
     const selectedIds = req.body.selectedIds;
     if (typeof selectedIds === "string") {
@@ -29,6 +31,14 @@ router.post('/', async (req, res) => {
     fs.writeFile(resumeName + '.txt', resumeText, function (err) {
         if (err) return console.log(err);
     });
+
+    const newResume = new Resume({
+        name: resumeName,
+        description: resumeDescription,
+        content: resumeText
+    });
+    await Resume.create(newResume);
+
     res.redirect('/myResumes');
 })
 
