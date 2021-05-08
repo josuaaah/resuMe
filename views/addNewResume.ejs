@@ -40,40 +40,27 @@
 
       <div class="achievementListAndResumeDetails">
         <div class="horizontalForm">
-          <form class="row g-3" action="/addNewResume" method="post">
+          <form class="row g-3" action="" method="post">
             <div class="container">
-              <div class="row">
-                <div class="col">
-                  <nav>
-                    <p><em>My Achievements</em></p>
-                    <ul>
-                      <% let i = 0; %>
-                      <% for (let achievement of achievements) { %>
-                        <% i += 1; %>
-                        <li>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="achievement<%i%>">
-                            <label class="form-check-label" for="achievement<%i%>">
-                              <%=achievement.name%>
-                            </label>
-                          </div>
-                        </li>
-                      <% } %>
-                    </ul>
-                  </nav>
+
+              <label for="resumeName" class="form-label">Resume Name</label>
+              <input type="text" class="form-control" name="resumeName" id="resumeName" placeholder="Overachiever's Resume" required>
+
+              <span class="input-group-text">Resume Description (Optional)</span>
+              <textarea class="form-control" aria-label="With textarea" name="resumeDescription"></textarea>
+
+              <nav>
+                <p><em>My Achievements</em></p>
+                <% for (let achievement of achievements) { %>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="selectedIds" value="<%=achievement._id%>" id="<%=achievement._id%>">
+                  <label class="form-check-label" for="<%=achievement._id%>"><%=achievement.name%></label>
                 </div>
-                <div class="col">
-                  <div class="mb-3" required>
-                    <label for="resumeName" class="form-label">Resume Name</label>
-                    <input type="text" class="form-control" id="resumeName" placeholder="Overachiever's Resume" required>
-                  </div>
-                  <div class="mb-3">
-                    <span class="input-group-text">Resume Description (Optional)</span>
-                    <textarea class="form-control" aria-label="With textarea" name="resumeDescription"></textarea>
-                  </div>
-                  <button type="button" class="btn btn-outline-info" onclick="location.href ='/myResumes'">Save Resume</button>
-                </div>
-              </div>
+                <% } %>
+              </nav>
+
+              <button type="submit" class="btn btn-outline-info">Generate Resume</button>
+
             </div>
           </form>
         </div>

@@ -10,4 +10,8 @@ router.get("/", async (req, res, next) => {
     res.render('addNewResume', { achievements });
 });
 
+router.post('/', async (req, res) => {
+    res.send(req.body)
+})
+
 module.exports = router;

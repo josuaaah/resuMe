@@ -51,7 +51,7 @@
                     <label for="achievementCategory" class="form-label">Category</label>
                     <select class="form-control" id="achievementCategory" name="category" required>
                         <% for (let category of achievementCategories) { %>
-                            <option value="<%=category%>" <%= achievementToEdit.category === category ? 'selected' : '' %>><%=category%></option>
+                            <option value="<%=category%>" <%=achievementToEdit.category === category ? 'selected' : ''%>><%=category%></option>
                         <% } %>
                     </select>
                 </div>
