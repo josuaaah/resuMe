@@ -49,6 +49,7 @@ const addNewResumeRouter = require('./routes/addNewResume');
 const editProfileRouter = require('./routes/editProfile');
 const editAchievementRouter = require('./routes/editAchievement');
 const deleteAchievementRouter = require('./routes/deleteAchievement');
+const editResumeRouter = require('./routes/editResume');
 
 app.use('/', homeRouter);
 app.use('/aboutUs', aboutUsRouter);
@@ -62,6 +63,7 @@ app.use('/addNewResume', addNewResumeRouter);
 app.use('/editProfile', editProfileRouter);
 app.use('/editAchievement', editAchievementRouter);
 app.use('/deleteAchievement', deleteAchievementRouter);
+app.use('/editResume', editResumeRouter);
 
 app.listen(process.env.PORT || 3030, function() {
   console.log("Server started on port 3030")
