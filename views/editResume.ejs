@@ -12,7 +12,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles.css" type="text/css">
     <link rel="icon" href="/images/favicon.ico" type="image/favicon.ico">
-    <title>Edit Achievement</title>
+    <title>Edit Resume</title>
 </head>
 
 <body>
@@ -25,38 +25,30 @@
     </div>
     <div class="achievementTitleButton">
         <div class="achievementTitle">
-            <h1 class="display-6">Edit Achievement</h1>
+            <h1 class="display-6">Edit Resume</h1>
         </div>
     </div>
 
     <div class="addNewAchievementBox">
         <div class="addNewAchievementBoxTitle">
-            <h3 class="display-6">Edit Achievement</h3>
+            <h3 class="display-6">Edit Resume</h3>
         </div>
         <div class="horizontalForm">
-            <form class="row g-3" action="<%=achievementToEdit._id%>?_method=PUT" method="post">
+            <form class="row g-3" action="<%=resumeToEdit._id%>?_method=PUT" method="post">
                 <div class="col-md-6">
                     <label for="achievementName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="achievementName" name="name" value="<%=achievementToEdit.name%>" required>
+                    <input type="text" class="form-control" id="achievementName" name="name" value="<%=resumeToEdit.name%>" required>
                 </div>
                 <div class="input-group" id="achievementDescription">
                     <span class="input-group-text">Description</span>
-                    <textarea class="form-control" aria-label="With textarea" name="description"><%=achievementToEdit.description%></textarea>
+                    <textarea class="form-control" aria-label="With textarea" name="description"><%=resumeToEdit.description%></textarea>
                 </div>
-                <div class="col-md-6" id="dateInputs">
-                    <label for="achievementYear" class="form-label">Year</label>
-                    <input type="number" class="form-control" id="achievementYear" name="year" min="0" value="<%=achievementToEdit.year%>" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="achievementCategory" class="form-label">Category</label>
-                    <select class="form-control" id="achievementCategory" name="category" required>
-                        <% for (let category of achievementCategories) { %>
-                            <option value="<%=category%>" <%=achievementToEdit.category === category ? 'selected' : ''%>><%=category%></option>
-                        <% } %>
-                    </select>
+                <div class="input-group" id="achievementDescription">
+                    <span class="input-group-text">Content</span>
+                    <textarea class="form-control" aria-label="With textarea" name="content"><%=resumeToEdit.content%></textarea>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Update Achievement</button>
+                    <button type="submit" class="btn btn-primary">Update Resume</button>
                 </div>
             </form>
         </div>

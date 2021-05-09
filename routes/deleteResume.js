@@ -3,11 +3,12 @@ const bodyParser = require("body-parser");
 const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
-import { Achievement } from '../models/achievement';
+import { Resume } from '../models/resume';
 
-router.get("/", async (req, res, next) => {
-    const achievements = await Achievement.find({});
-    res.render('myAchievements', { achievements });
+router.delete("/:id", async (req, res, next) => {
+    const { id } = req.params;
+    await Resume.findByIdAndDelete(id);
+    res.redirect('/myResumes');
 });
 
 module.exports = router;
