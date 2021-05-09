@@ -63,7 +63,11 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <li><a class="dropdown-item" href="/editResume/<%=resume._id%>">Edit</a></li>
-                  <li><a class="dropdown-item" href="#">Delete</a></li>
+                  <li>
+                    <form class="dropdown-item" action="/deleteResume/<%=resume._id%>?_method=DELETE" method="post">
+                      <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                  </li>
                 </ul>
               </div>
             </td>
